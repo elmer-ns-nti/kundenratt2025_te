@@ -1,1 +1,97 @@
-/* Denna fil skall innehålla din CSS kod */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.wrapperLandingpage {
+    display: grid;
+
+    grid-template-areas: 
+    'hd hd'
+    'lk mn'
+    'pc pc'
+    'ft ft';
+
+    grid-template-columns: 1fr 2fr;
+
+    margin: 5px;
+    gap: 5px;
+}
+
+#title {
+    margin: auto;
+}
+
+#nav {
+    background-color: blue;
+}
+#pages {
+    list-style-type: none;
+}
+#pages > li {
+    float: left;
+}
+
+
+header {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+    grid-area: hd;
+
+    height: 10vh;
+}
+footer {
+    grid-area: ft;
+
+    height: 10vh;
+}
+
+main {
+    grid-area: mn;
+
+    background-color: blueviolet;
+}
+
+#intro {
+    padding: 10px;
+}
+
+h2 {
+    margin-top: 10px;
+}
+h3 {
+    margin-bottom: 0px;
+}
+
+#pictures {
+    grid-area: pc;
+
+    background-color: gray;
+}
+#links {
+    padding: 10px;
+
+    grid-area: lk;
+
+    background-color: green;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Temporärt */
+header {
+    background-color: red;
+}
+footer {
+    background-color: red;
+}
