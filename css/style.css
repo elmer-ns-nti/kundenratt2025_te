@@ -1,6 +1,27 @@
+:root {
+    --main-color: #b58b63;
+    --other-color: #f6efe8;
+    --green: #a5b58d;
+}
+
 * {
     margin: 0px;
     padding: 0px;
+}
+
+
+body {
+    /*background: radial-gradient(circle at center, var(--green), var(--other-color));*/
+    background-color: var(--green);
+    color: rgb(50, 50, 50);
+
+    padding: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+header, footer {
+    color: rgb(25, 25, 25);
 }
 
 a {
@@ -8,15 +29,12 @@ a {
 
     text-decoration: none;
 }
-a:visited {
-}
 
 .wrapper {
     display: grid;
 
-
     margin: 5px;
-    gap: 5px;
+    gap: 10px;
 }
 
 .logo {
@@ -32,11 +50,14 @@ footer {
 main {
     grid-area: mn;
 
-    background-color: blueviolet;
-}
-
-#intro {
     padding: 10px;
+
+    background-color: var(--main-color);
+}
+section {
+    padding: 10px;
+
+    background-color: var(--main-color);
 }
 
 h2 {
@@ -48,15 +69,9 @@ h3 {
 
 #pictures {
     grid-area: pc;
-
-    background-color: gray;
 }
 #links {
-    padding: 10px;
-
     grid-area: lk;
-
-    background-color: green;
 }
 
 /* Header */
@@ -67,6 +82,8 @@ header {
     grid-area: hd;
 
     height: 10vh;
+
+    background-color: var(--other-color);
 }
 
 #nav {
@@ -74,7 +91,7 @@ header {
     align-items: center;
     justify-content: center;
 
-    background-color: blue;
+    background-color: inherit;
 }
 #pages {
     list-style-type: none;
@@ -115,6 +132,11 @@ header {
     text-align: start;
 }
 
+/* Footer */
+footer {
+    background-color: var(--other-color);
+}
+
 /* Landing Page */
 #LandingPage {
     grid-template-areas: 
@@ -147,22 +169,37 @@ header {
 #people {
     grid-area: pl;
 
-    background-color: purple;
+    display: grid;
+
+    gap: 2vh 2vh;
+    padding: 3%;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
+#people > div {
+    background-color: red;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+
+    height: 20vh;
+    padding: 5px;
+}
+#people > div > h2 {
+    font-size: 0.8em;
+}
+
+
 #history {
     grid-area: hs;
-
-    background-color: green;
 }
 #info {
     grid-area: in;
-
-    background-color: blue;     
 }
 #contact {
     grid-area: cn;
-
-    background-color: cornsilk;
 } 
 
 
@@ -174,9 +211,3 @@ header {
 
 
 /* Temporärt */
-header {
-    background-color: red;
-}
-footer {
-    background-color: red;
-}
