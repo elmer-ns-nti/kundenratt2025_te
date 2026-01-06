@@ -208,28 +208,34 @@ footer {
 }
 
 #menu > section > div > img {
-    max-height: 75%;
+    padding: 10px;
+
     animation: C 0.25s;
+
+    scale: 0.6;
+
+    height: 100%;
 }
 #menu > section > div:hover > img {
-    max-height: 65%;
     animation: A 0.25s;
+
+    height: 65%;
 }
 
 @keyframes A {
     from {
-        max-height: 75%;
+        height: 100%;
     }
     to {
-        max-height: 65%;
+        height: 65%;
     }
 }
 @keyframes C {
     from {
-        max-height: 65%;
+        height: 65%;
     }
     to {
-        max-height: 75%;
+        height: 100%;
     }
 }
 
