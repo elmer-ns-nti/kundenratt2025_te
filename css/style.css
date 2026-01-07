@@ -13,7 +13,7 @@
 }
 
 html {
-    font-size: 1.67vh;
+    font-size: 1.25vw;
 }
 
 body {
@@ -29,6 +29,23 @@ header,
 footer {
     color: rgb(50, 50, 50);
     text-shadow: 1px 1px 2px var(--green);
+
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+}
+footer > nav > ul {
+    display: flex;
+    flex-direction: column;
+    text-decoration: underline;
+    gap: 2px;
+    font-size: 0.8rem;
+    list-style: none;
+}
+address {
+    display: flex;
+    gap: 15px;
 }
 
 a {
@@ -119,7 +136,7 @@ header {
     display: block;
 }
 #pages > li > a {
-    padding: 2vh;
+    padding: 2vw;
 }
 
 #pages > li > a:hover {
@@ -208,13 +225,14 @@ footer {
     display: grid;
 
     /*grid-template-columns: 1fr 1fr 1fr;*/
-    grid-template-columns: repeat(auto-fill, 28.5vh);
+    /*grid-template-columns: repeat(auto-fill, 28.5vh);*/
+    grid-template-columns: repeat(3, 1fr);
     justify-content: space-around;
 }
 
 .menu_item {
+    aspect-ratio: 0.95;
 }
-
 #bakverk,
 #lunch,
 #drycker {
@@ -240,7 +258,7 @@ footer {
 
 .product_description {
     overflow: hidden;
-    font-size: 0.7rem;
+    font-size: 0.85rem;
 
     width: 65%;
     align-self: center;
@@ -248,11 +266,6 @@ footer {
 .product_short {
     width: 65%;
     align-self: center;
-}
-
-.menu_item {
-    aspect-ratio: 0.95;
-    height: 30vh;
 }
 
 .price {
@@ -400,10 +413,12 @@ footer {
     position: relative;
 
     transition: filter 0.125s;
+
+    box-shadow: 1px 1px 1px 1px;
 }
 .reveal_card:hover {
     filter: brightness(105%);
-    box-shadow: 1px 1px 1px 1px;
+    box-shadow: 2px 2px 2px 2px;
 }
 
 .revealed {
