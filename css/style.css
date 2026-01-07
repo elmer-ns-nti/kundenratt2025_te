@@ -13,7 +13,7 @@
 }
 
 html {
-    font-size: 1.67vw;
+    font-size: 1.67vh;
 }
 
 body {
@@ -192,48 +192,13 @@ footer {
     gap: 10px;
 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+
+    /*grid-template-columns: 1fr 1fr 1fr;*/
+    grid-template-columns: repeat(auto-fill, 28.5vh);
+    justify-content: space-around;
 }
 
 .menu_item {
-    background-color: seagreen;
-
-    position: relative;
-
-    aspect-ratio: 1.15;
-
-    display: grid;
-
-    grid-template-rows: 1fr auto auto minmax(0px, var(--p-height));
-    transition:
-        --p-height 0.5s,
-        grid-template-rows 0.5s;
-
-    --p-height: 0px;
-
-    overflow: hidden;
-
-    animation: B 0.25s;
-}
-
-.menu_item:hover {
-    filter: brightness(105%);
-
-    /*grid-template-rows: 1fr auto auto 1fr;*/
-
-    --p-height: 200px;
-}
-
-@property --p-height {
-    syntax: "<length>";
-    inherits: false;
-    initial-value: 0px;
-}
-
-.menu_item > img {
-    height: 50%;
-    background-color: orange;
-    scale: 0.5;
 }
 
 #bakverk,
@@ -243,24 +208,38 @@ footer {
 }
 
 .product_image {
-    margin-top: 10px;
+    flex-grow: 1;
 
     background-image: url(/img/bakverk/bread.png);
+
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 50%;
+
+    filter: blur(2px) brightness(90%);
+
+    transition: filter 0.25s ease-in-out;
+}
+.menu_item:hover > .product_image {
+    transition: filter 0.25s ease-in-out 0.35s;
+    filter: none;
 }
 
 .product_description {
     overflow: hidden;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+
+    width: 65%;
+    align-self: center;
+}
+.product_short {
+    width: 65%;
+    align-self: center;
 }
 
-.productInfo {
-    grid-template-columns: 1fr 75% 1fr;
-
-    width: 60%;
-    margin-bottom: 2%;
+.menu_item {
+    aspect-ratio: 0.95;
+    height: 30vh;
 }
 
 .price {
@@ -272,19 +251,22 @@ footer {
     text-align: end;
 }
 
-.productTags {
+.product_tags {
     position: absolute;
     left: 10px;
     bottom: 10px;
 
-    width: 15%;
+    width: 10%;
 
-    /*background-color: green;*/
+    background-color: var(--green);
+
+    border-radius: 5px;
+
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
 }
-.productTags > * {
-    scale: 0.8;
+.product_tags > * {
+    scale: 0.85;
     filter: invert(18%) sepia(0%) saturate(1002%) hue-rotate(246deg)
         brightness(91%) contrast(90%);
     width: 100%;
@@ -351,21 +333,26 @@ footer {
 /* Reveal card */
 
 .reveal_card {
-    aspect-ratio: 0.95;
-    width: 25vw;
+    background-color: inherit;
+
+    border-radius: 5px;
+    padding: 10px;
+    gap: 5px;
 
     display: flex;
     flex-direction: column;
 
     overflow: hidden;
+
+    position: relative;
 }
-.reveal_card > * {
-    flex-shrink: 0;
+.reveal_card:hover {
+    box-shadow: 3px 3px 3px 3px;
 }
 
 .revealed {
     max-height: 0px;
-    transition: max-height 0.5s;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0.25, 1);
 }
 .reveal_card:hover > .revealed {
     max-height: 100%;
