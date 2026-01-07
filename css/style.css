@@ -117,6 +117,10 @@ b {
 }
 #pictures > img {
     object-fit: cover;
+    filter: brightness(75%) saturate(110%);
+}
+#pictures > img:nth-child(2) {
+    filter: saturate(80%);
 }
 
 #links {
