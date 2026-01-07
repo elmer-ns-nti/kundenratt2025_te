@@ -1,7 +1,10 @@
+/* Setup-grejer och annat */
+
 :root {
     --main-color: #b58b63;
     --other-color: #f6efe8;
     --green: #a5b58d;
+    --text-color: rgb(50, 50, 50);
 }
 
 * {
@@ -10,13 +13,12 @@
 }
 
 html {
-    font-size: 2vh;
+    font-size: 1.67vh;
 }
 
 body {
-    /*background: radial-gradient(circle at center, var(--green), var(--other-color));*/
     background-color: var(--green);
-    color: rgb(50, 50, 50);
+    color: var(--text-color);
 
     padding: 1vw;
     padding-top: 1vh;
@@ -77,6 +79,10 @@ h2 {
 }
 h3 {
     margin-bottom: 0px;
+}
+
+b {
+    display: block;
 }
 
 #pictures {
@@ -165,12 +171,12 @@ footer {
 /* Menu */
 #Menu {
     grid-template-areas:
-        "hd hd"
-        "qk in"
-        "mn mn"
-        "ft ft";
+        "hd"
+        "in"
+        "mn"
+        "ft";
 
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr;
 }
 
 #menu {
@@ -182,6 +188,16 @@ footer {
 
     text-align: center;
 }
+
+#Menu > #info {
+    display: flex;
+    gap: 15px;
+}
+#Menu > #info > ul {
+    list-style: none;
+    font-weight: bolder;
+}
+
 #menu > h2 {
     font-size: 2rem;
 }
@@ -190,64 +206,13 @@ footer {
     gap: 10px;
 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-#menu > section > div {
-    background-color: var(--main-color);
 
-    aspect-ratio: 1.15;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    /*grid-template-columns: 1fr 1fr 1fr;*/
+    grid-template-columns: repeat(auto-fill, 28.5vh);
     justify-content: space-around;
 }
 
-#menu > section > div:hover {
-    filter: brightness(105%);
-}
-
-#menu > section > div > img {
-    max-height: 75%;
-    animation: C 0.25s;
-}
-#menu > section > div:hover > img {
-    max-height: 65%;
-    animation: A 0.25s;
-}
-
-@keyframes A {
-    from {
-        max-height: 75%;
-    }
-    to {
-        max-height: 65%;
-    }
-}
-@keyframes C {
-    from {
-        max-height: 65%;
-    }
-    to {
-        max-height: 75%;
-    }
-}
-
-@keyframes B {
-    from {
-        height: 0%;
-    }
-    to {
-        height: 100%;
-    }
-}
-@keyframes D {
-    from {
-        height: 100%;
-    }
-    to {
-        height: 0%;
-    }
+.menu_item {
 }
 
 #bakverk,
@@ -256,43 +221,86 @@ footer {
     padding-top: 10px;
 }
 
-.productDescription {
+.product_image {
+    flex-grow: 1;
+
+    background-image: url(/img/bakverk/bread.png);
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+
+    filter: brightness(25%);
+
+    transition: filter 0.125s ease-in-out;
+}
+.menu_item:hover > .product_image {
+    filter: none;
+}
+
+.product_description {
     overflow: hidden;
+    font-size: 0.7rem;
 
-    height: 0%;
-
-    animation: D 0.25s;
-
-    font-size: 0.8rem;
+    width: 65%;
+    align-self: center;
 }
-#menu > section > div:hover > div > .productDescription {
-    animation: B 0.25s;
-
-    height: 100%;
+.product_short {
+    width: 65%;
+    align-self: center;
 }
 
-.productInfo {
-    display: grid;
-
-    grid-template-columns: 1fr 75% 1fr;
-
-    width: 90%;
-    margin-bottom: 2%;
+.menu_item {
+    aspect-ratio: 0.95;
+    height: 30vh;
 }
+
 .price {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+
     font-weight: bold;
     text-align: end;
+}
+
+.menu_item:hover > .product_tags {
+    opacity: 1;
+}
+
+.product_tags {
+    opacity: 0.5;
+
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+
+    width: 10%;
+
+    background-color: var(--green);
+
+    border-radius: 5px;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    box-shadow: 1px 1px 1px 1px;
+}
+.product_tags > * {
+    scale: 0.85;
+    filter: invert(18%) sepia(0%) saturate(1002%) hue-rotate(246deg)
+        brightness(91%) contrast(90%);
+    width: 100%;
 }
 
 /*About us*/
 #AboutUs {
     grid-template-areas:
-        "hd hd hd"
-        "pl pl hs"
-        "cn in in"
-        "ft ft ft";
+        "hd hd hd hd"
+        "pl pl hs hs"
+        "cn fu fu oh"
+        "ft ft ft ft";
 
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 #people {
@@ -303,10 +311,9 @@ footer {
     gap: 2vh 2vh;
     padding: 3%;
 
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 }
 #people > div {
-    background-color: var(--main-color);
     filter: brightness(90%);
     border-radius: 5px;
 
@@ -335,12 +342,77 @@ footer {
 }
 #info {
     grid-area: in;
+
+    display: flex;
+    justify-content: space-evenly;
 }
 #quick {
     grid-area: qk;
 }
 #contact {
     grid-area: cn;
+}
+
+#find_us {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    grid-area: fu;
+}
+#find_us > iframe {
+    margin-top: 10px;
+    border: 2px solid var(--green);
+    border-radius: 5px;
+    width: 85%;
+    height: 100%;
+}
+
+#opening_hours {
+    grid-area: oh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#opening_hours > h2 {
+    margin-bottom: 5vh;
+}
+#opening_hours > p {
+    margin-bottom: 2.5vh;
+}
+
+/* Reveal card */
+
+.reveal_card {
+    background-color: inherit;
+
+    border-radius: 5px;
+    padding: 10px;
+    gap: 5px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    position: relative;
+
+    transition: filter 0.125s;
+}
+.reveal_card:hover {
+    filter: brightness(105%);
+    box-shadow: 1px 1px 1px 1px;
+}
+
+.revealed {
+    max-height: 0px;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0.25, 1);
+}
+.reveal_card:hover > .revealed {
+    max-height: 100%;
+    transition: max-height 0.5s ease-in-out;
 }
 
 /* Temporärt */
