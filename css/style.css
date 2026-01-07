@@ -81,6 +81,10 @@ h3 {
     margin-bottom: 0px;
 }
 
+b {
+    display: block;
+}
+
 #pictures {
     grid-area: pc;
 }
@@ -167,12 +171,12 @@ footer {
 /* Menu */
 #Menu {
     grid-template-areas:
-        "hd hd"
-        "qk in"
-        "mn mn"
-        "ft ft";
+        "hd"
+        "in"
+        "mn"
+        "ft";
 
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr;
 }
 
 #menu {
@@ -184,6 +188,16 @@ footer {
 
     text-align: center;
 }
+
+#Menu > #info {
+    display: flex;
+    gap: 15px;
+}
+#Menu > #info > ul {
+    list-style: none;
+    font-weight: bolder;
+}
+
 #menu > h2 {
     font-size: 2rem;
 }
@@ -250,7 +264,13 @@ footer {
     text-align: end;
 }
 
+.menu_item:hover > .product_tags {
+    opacity: 1;
+}
+
 .product_tags {
+    opacity: 0.75;
+
     position: absolute;
     left: 10px;
     bottom: 10px;
@@ -274,12 +294,12 @@ footer {
 /*About us*/
 #AboutUs {
     grid-template-areas:
-        "hd hd hd"
-        "pl pl hs"
-        "cn in in"
-        "ft ft ft";
+        "hd hd hd hd"
+        "pl pl hs hs"
+        "cn fu fu oh"
+        "ft ft ft ft";
 
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 #people {
@@ -290,7 +310,7 @@ footer {
     gap: 2vh 2vh;
     padding: 3%;
 
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 }
 #people > div {
     filter: brightness(90%);
@@ -321,12 +341,39 @@ footer {
 }
 #info {
     grid-area: in;
+
+    display: flex;
+    justify-content: space-evenly;
 }
 #quick {
     grid-area: qk;
 }
 #contact {
     grid-area: cn;
+}
+
+#find_us {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    grid-area: fu;
+}
+#find_us > iframe {
+    border: 2px solid var(--green);
+    border-radius: 5px;
+}
+
+#opening_hours {
+    grid-area: oh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#opening_hours > h2 {
+    margin-bottom: 10%;
 }
 
 /* Reveal card */
@@ -348,7 +395,7 @@ footer {
     transition: filter 0.125s;
 }
 .reveal_card:hover {
-    box-shadow: 3px 3px 3px 3px;
+    box-shadow: 1px 1px 1px 1px;
 
     filter: contrast(110%);
 }
