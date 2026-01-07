@@ -294,6 +294,8 @@ footer {
     right: 10px;
     bottom: 10px;
 
+    font-size: 1.5vh;
+
     font-weight: bold;
     text-align: end;
 }
