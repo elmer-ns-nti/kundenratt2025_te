@@ -449,12 +449,9 @@ footer {
     position: relative;
 
     transition: filter 0.125s;
-
-    box-shadow: 1px 1px 1px 1px;
 }
 .reveal_card:hover {
     filter: brightness(105%);
-    box-shadow: 2px 2px 2px 2px;
 }
 
 .revealed {
