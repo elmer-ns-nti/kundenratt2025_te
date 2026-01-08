@@ -50,7 +50,9 @@ footer > nav > ul {
 }
 address {
     display: flex;
-    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
 a {
@@ -117,8 +119,11 @@ b {
 }
 #pictures > img {
     object-fit: cover;
+    filter: brightness(75%) saturate(110%);
 }
-
+#pictures > img:nth-child(2) {
+    filter: saturate(80%);
+}
 
 #links {
     grid-area: lk;
@@ -240,14 +245,16 @@ footer {
     display: grid;
 
     /*grid-template-columns: 1fr 1fr 1fr;*/
-    /*grid-template-columns: repeat(auto-fill, 28.5vh);*/
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, 28.5vh);
+    /*grid-template-columns: repeat(3, 1fr);*/
     justify-content: space-around;
 }
 
 .menu_item {
     aspect-ratio: 0.95;
+    height: 30b;
 }
+
 #bakverk,
 #lunch,
 #drycker {
@@ -255,30 +262,32 @@ footer {
 }
 
 .product_image {
-    flex-grow: 1;
+    max-height: 100%;
+    object-fit: contain;
 
-    background-image: url(/img/bakverk/bread.png);
-
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 50%;
+    margin: 5px;
 
     filter: brightness(25%);
-
-    transition: filter 0.125s ease-in-out;
+    transition: filter 0.25s ease-in-out;
 }
 .menu_item:hover > .product_image {
     filter: none;
 }
 
-.product_description {
-    overflow: hidden;
-    font-size: 0.85rem;
+.product_title {
+    font-size: 1.75vh;
+}
 
+.product_short {
     width: 65%;
     align-self: center;
+    font-size: 1.25vh;
 }
-.product_short {
+
+.product_description {
+    overflow: hidden;
+    font-size: 1vh;
+
     width: 65%;
     align-self: center;
 }
@@ -287,6 +296,8 @@ footer {
     position: absolute;
     right: 10px;
     bottom: 10px;
+
+    font-size: 1.5vh;
 
     font-weight: bold;
     text-align: end;
@@ -311,10 +322,10 @@ footer {
 
     display: grid;
     grid-template-columns: 1fr;
-    box-shadow: 1px 1px 1px 1px;
 }
 .product_tags > * {
-    scale: 0.85;
+    scale: 0.8;
+
     filter: invert(18%) sepia(0%) saturate(1002%) hue-rotate(246deg)
         brightness(91%) contrast(90%);
     width: 100%;
@@ -378,6 +389,13 @@ footer {
     grid-area: qk;
 }
 #contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    gap: 15px;
+
     grid-area: cn;
 }
 
@@ -428,21 +446,18 @@ footer {
     position: relative;
 
     transition: filter 0.125s;
-
-    box-shadow: 1px 1px 1px 1px;
 }
 .reveal_card:hover {
     filter: brightness(105%);
-    box-shadow: 2px 2px 2px 2px;
 }
 
 .revealed {
-    max-height: 0px;
-    transition: max-height 0.5s cubic-bezier(0, 1, 0.25, 1);
+    height: 0px;
+    transition: height 0.25s ease-in-out;
 }
 .reveal_card:hover > .revealed {
-    max-height: 100%;
-    transition: max-height 0.5s ease-in-out;
+    height: 50%; /* Detta är det bästa sättet jag hittat, men det gör att texten alltid kommer ta samma mängd plats oberoende på hur mycket text det är. Jag hade kunnat använda max-height, men isåfall hade 'transition'-en inte fungerat lika bra. Det finns tydligen också funktioner där man kan använda auto och andra keywords i en transition men de verkar inte ha full support i alla browsers.*/
+    transition: height 0.25s ease-in-out;
 }
 
 /* Temporärt */
